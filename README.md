@@ -1,5 +1,5 @@
 # Pomocheck
-Esta aplicação web se trata de um registrador de pomodoros,, um projeto pessoal que criei para registrar e acompanhar sessões de estudos no método Pomodoro. O usuário pode planejar a quantidade de pomodoros que pretende realizar em um dia, marcar os pomodoros concluídos e acompanhar o progresso semanal por meio de um relatório visual.
+Esta aplicação web se trata de um registrador de pomodoros, um projeto pessoal que criei para registrar e acompanhar sessões de estudos no método Pomodoro. O usuário pode planejar a quantidade de pomodoros que pretende realizar em um dia, marcar os pomodoros concluídos e acompanhar o progresso semanal por meio de um relatório visual.
 
 ## Funcionalidades
 Calendário para seleção do dia: permite escolher um dia específico para registrar os pomodoros.
