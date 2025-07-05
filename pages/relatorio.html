@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/styles/style.css">
+  <link rel="stylesheet" href="/styles/relatorio.css">
+  <title>Relatório da Semana</title>
+</head>
+<body>
+  <div class="card">
+    <header>
+      <ul>
+        <li><a href="index.html">Registro</a></li>
+        <li><a href="/pages/relatorio.html">Relatório</a></li>
+        <li><a href="/pages/timer.html">Timer</a></li>
+      </ul>
+    </header>
+
+    <button id="toggle-tema">🌙 Modo Escuro</button>
+
+    <h3>Relatório Semanal</h3>
+    <div class="progress-circle">
+      <svg width="150" height="150">
+        <circle class="progress-bg" cx="75" cy="75" r="65"></circle>
+        <circle class="progress-bar" cx="75" cy="75" r="65" stroke-dasharray="408" stroke-dashoffset="0"></circle>
+      </svg>
+      <div class="percent-text" id="percent">0%</div>
+    </div>
+    <div class="pomodoro-count" id="pomodoros">0 / 0 pomodoros</div>
+
+    <div class="dias" id="diasDaSemana"></div>
+
+    <div class="semana-controles">
+      <button onclick="mudarSemana(-1)"><< Semana</button>
+      <button onclick="mudarSemana(0)">Atual</button>
+      <button onclick="mudarSemana(1)">Semana >></button>
+    </div>
+  </div>
+
+  <script>
+    
+  </script>
+  <script src="/script/script.js"> </script>
+  <script src="/script/relatorio.js"> </script>
+</body>
+</html>

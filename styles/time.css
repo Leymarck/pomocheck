@@ -1,0 +1,105 @@
+body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 30px 20px;
+    }
+
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      max-width: 320px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .tempos {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      gap: 10px;
+    }
+
+    .tempos div {
+      flex: 1;
+      padding: 10px;
+      border-radius: 8px;
+      background: #002d5f;
+      color: white;
+      cursor: pointer;
+    }
+
+    .tempos .ativo {
+      background: #004080;
+    }
+
+    #timer {
+      font-size: 48px;
+      margin: 20px 0;
+      color: #002d5f;
+    }
+
+    .progress-bar {
+      height: 10px;
+      width: 100%;
+      background: #eee;
+      border-radius: 6px;
+      overflow: hidden;
+      margin-top: 10px;
+    }
+
+    .progress-inner {
+      height: 100%;
+      width: 0%;
+      background: #002d5f;
+      transition: width 1s linear;
+    }
+
+    button {
+      padding: 12px 20px;
+      font-size: 18px;
+      border: none;
+      background-color: #002d5f;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    header ul {
+      list-style: none;
+      display: flex;
+      gap: 10px;
+      padding: 0;
+      margin-bottom: 20px;
+      justify-content: center;
+    }
+
+    header a {
+      text-decoration: none;
+      padding: 6px 12px;
+      background: #002d5f;
+      color: white;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+
+    #notificacao {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #002d5f;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  font-size: 14px;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}

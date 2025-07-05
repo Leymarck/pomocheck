@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="/styles/style.css">
+  <link rel="stylesheet" href="/styles/time.css">
+  <title>Timer Pomodoro</title>
+</head>
+<body>
+  <header>
+    <ul>
+        <li><a href="index.html">Registro</a></li>
+        <li><a href="/pages/relatorio.html">Relatório</a></li>
+        <li><a href="/pages/timer.html">Timer</a></li>
+      </ul>
+  </header>
+
+  <button id="toggle-tema">🌙 Modo Escuro</button>
+
+  <div class="container">
+    <h2>Pomodoro Timer</h2>
+
+    <div class="tempos">
+      <div data-tempo="1500" class="ativo">25min</div>
+      <div data-tempo="300">5min</div>
+      <div data-tempo="900">15min</div>
+    </div>
+
+    <div id="timer" class="timer">25:00</div>
+    <div class="progress-bar"><div id="progress" class="progress-inner"></div></div>
+   <button id="btn">Start</button>
+
+  </div>
+
+  <div id="notificacao" style="display:none;"></div>
+
+
+  <audio id="som-click" src="/media/click.mp3"></audio>
+  <audio id="som-fim" src="/media/pocoto.mp3"></audio>
+
+  <script src="/script/time.js"> </script>
+  <script src="/script/script.js"> </script>
+</body>
+</html>

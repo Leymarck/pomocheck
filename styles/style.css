@@ -1,0 +1,101 @@
+/* Tema claro padrão */
+body {
+  background: #f9f9f9;
+  color: #000;
+}
+
+/* Tema escuro */
+body.dark-mode {
+  background: #121212;
+  color: #f0f0f0;
+}
+
+body.dark-mode .container,
+body.dark-mode .card {
+  background: #1e1e1e;
+  color: #f0f0f0;
+}
+
+body.dark-mode button,
+body.dark-mode header a,
+body.dark-mode .tempos div {
+  background-color: #444 !important;
+  color: #fff !important;
+}
+
+#toggle-tema {
+  margin-bottom: 15px;
+  background: #002d5f;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  font-size: 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* Gráfico circular no modo claro */
+.progress-bg {
+  stroke: #eee;
+}
+.progress-bar {
+  stroke: #002d5f;
+}
+
+/* Modo escuro */
+body.dark-mode .progress-bg {
+  stroke: #333;
+}
+body.dark-mode .progress-bar {
+  stroke: #a00000;
+}
+body.dark-mode .percent-text {
+  color: #a00000;
+}
+
+.barra-progresso {
+  width: 100%;
+  height: 10px;
+  background-color: #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.barra-progresso .preenchido {
+  height: 100%;
+  background-color: #002d5f;
+  transition: width 0.2s linear;
+}
+
+/* Escuro */
+body.dark-mode .barra-progresso {
+  background-color: #333;
+}
+body.dark-mode .barra-progresso .preenchido {
+  background-color: #a00000;
+}
+
+#notificacao {
+  /* ... estilo já existente ... */
+  background-color: #002d5f;
+}
+
+body.dark-mode #notificacao {
+  background-color: #a00000;
+  color: #000;
+}
+
+/* Tema claro */
+.progress-bar {
+  stroke: #002d5f;
+}
+.percent-text {
+  color: #002d5f;
+}
+
+/* Tema escuro */
+body.dark-mode .progress-bar {
+  stroke: #a00000;
+}
+body.dark-mode .percent-text {
+  color: #a00000;
+}
