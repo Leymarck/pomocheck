@@ -8,9 +8,9 @@ Checkbox para marcar pomodoros realizados: após o planejamento, surgem checkbox
 Relatório semanal: exibe um gráfico com a porcentagem de pomodoros realizados sobre os planejados na semana.
 
 ### Indicadores diários com emojis:
-🔥 para dias em que a meta foi atingida,
-🥺 para dias com pomodoros feitos, mas abaixo da meta,
-😭 para dias sem pomodoros realizados.
+- 🔥 para dias em que a meta foi atingida,
+- 🥺 para dias com pomodoros feitos, mas abaixo da meta,
+- 😭 para dias sem pomodoros realizados.
 
 ### Persistência local: todos os dados são salvos no localStorage do navegador.
 
