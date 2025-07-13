@@ -7,13 +7,13 @@ body {
       padding: 30px 20px;
     }
 
-    .container {
+   .container {
       background: white;
-      padding: 30px;
+      padding: 25px;
       border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      max-width: 320px;
+      max-width: 400px;
       width: 100%;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
       text-align: center;
     }
 
@@ -59,7 +59,7 @@ body {
       transition: width 1s linear;
     }
 
-    button {
+    #btn {
       padding: 12px 20px;
       font-size: 18px;
       border: none;

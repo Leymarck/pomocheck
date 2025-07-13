@@ -99,3 +99,17 @@ body.dark-mode .progress-bar {
 body.dark-mode .percent-text {
   color: #a00000;
 }
+
+
+body.dark-mode #timer {
+      font-size: 48px;
+      margin: 20px 0;
+      color: #a00000;
+    }
+
+body.dark-mode .progress-inner {
+      height: 100%;
+      width: 0%;
+      background: #a00000;
+      transition: width 1s linear;
+    }

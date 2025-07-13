@@ -14,9 +14,11 @@ const dataInput = document.getElementById('data-estudo');
 
       storageKey = `pomodoros_${dataSelecionada}`;
 
-      const dataFormatada = new Date(dataSelecionada).toLocaleDateString('pt-BR', {
-        day: '2-digit', month: 'long', year: 'numeric'
-      });
+      const [ano, mes, dia] = dataSelecionada.split('-');
+const dataLocal = new Date(ano, mes - 1, dia);
+const dataFormatada = dataLocal.toLocaleDateString('pt-BR', {
+  day: '2-digit', month: 'long', year: 'numeric'
+});
 
       titulo.textContent = dataFormatada;
       containerDia.style.display = 'block';
@@ -75,3 +77,25 @@ const dataInput = document.getElementById('data-estudo');
       const feitosCount = feitos.filter(f => f).length;
       infoStatus.innerText = `Você completou ${feitosCount} de ${planejado} pomodoros.`;
     }
+
+
+    const btnAnterior = document.getElementById('anterior');
+const btnProximo = document.getElementById('proximo');
+
+function atualizarData(offsetDias) {
+  if (!dataSelecionada) return;
+
+  const [ano, mes, dia] = dataSelecionada.split('-');
+  const data = new Date(ano, mes - 1, dia);
+  data.setDate(data.getDate() + offsetDias);
+
+  const novaDataISO = data.toISOString().split('T')[0];
+  dataInput.value = novaDataISO;
+
+  // Dispara o evento change manualmente
+  const evento = new Event('change');
+  dataInput.dispatchEvent(evento);
+}
+
+btnAnterior.addEventListener('click', () => atualizarData(-1));
+btnProximo.addEventListener('click', () => atualizarData(1));

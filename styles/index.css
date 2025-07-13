@@ -59,20 +59,33 @@ body {
       font-size: 16px;
     }
 
-    button {
-      padding: 10px;
-      width: 100%;
-      font-size: 16px;
-      margin-top: 10px;
-      background-color: #002d5f;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-
     .info {
       font-size: 14px;
       color: #666;
       margin-top: 10px;
+    }
+
+
+    #navegacao-dia button {
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+#navegacao-dia button:hover {
+  transform: scale(1.2);
+}
+
+
+.botaopadrao {
+      padding: 12px 20px;
+      font-size: 18px;
+      border: none;
+      background-color: #002d5f;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 20px;
     }
