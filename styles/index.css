@@ -1,16 +1,28 @@
+html, body {
+  height: 100%;
+  margin: 0;
+      padding: 0;
+}
+
 body {
       font-family: Arial, sans-serif;
       background: #f9f9f9;
-      padding: 30px 20px;
+      
       display: flex;
-      justify-content: center;
+  align-items: center;     /* alinha verticalmente */
+  flex-direction: column;
+  font-size: large;
     }
+
+    
+
+
 
     .container {
       background: white;
       padding: 25px;
       border-radius: 12px;
-      max-width: 400px;
+      max-width: 350px;
       width: 100%;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
       text-align: center;
@@ -31,12 +43,12 @@ body {
       background: #002d5f;
       color: white;
       border-radius: 6px;
-      font-size: 14px;
+      font-size: 1.2rem;
     }
 
     input[type="date"],
     input[type="number"] {
-      width: 100%;
+      width: 90%;
       padding: 10px;
       margin: 10px 0;
       border: 1px solid #ccc;
@@ -66,19 +78,6 @@ body {
     }
 
 
-    #navegacao-dia button {
-  background: transparent;
-  border: none;
-  font-size: 24px;
-  cursor: pointer;
-  transition: transform 0.2s;
-}
-
-#navegacao-dia button:hover {
-  transform: scale(1.2);
-}
-
-
 .botaopadrao {
       padding: 12px 20px;
       font-size: 18px;
@@ -89,3 +88,44 @@ body {
       cursor: pointer;
       margin-top: 20px;
     }
+
+
+.bi-arrow-right-circle-fill {
+  color: #002d5f;
+  cursor: pointer;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.bi-arrow-left-circle-fill {
+  color: #002d5f;
+  cursor: pointer;
+  width: 100%;
+   padding: 0;
+  margin: 0;
+}
+
+
+.botao-esquerda {
+transition: transform 0.2s;
+background-color: transparent;
+border: none;
+font-size: 2.5rem;
+}
+
+.botao-esquerda:hover {
+  transform: scale(1.2);
+}
+
+.botao-direita {
+  transition: transform 0.2s;
+background-color: transparent;
+border: none;
+font-size: 2.5rem;
+}
+
+.botao-direita:hover {
+  transform: scale(1.2);
+}
+

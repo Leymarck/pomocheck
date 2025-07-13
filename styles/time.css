@@ -1,17 +1,23 @@
+html, body {
+  height: 100%;
+  margin: 0;
+      padding: 0;
+}
+
 body {
       font-family: Arial, sans-serif;
       background: #f9f9f9;
+      
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 30px 20px;
+  align-items: center;     /* alinha verticalmente */
+  flex-direction: column;
     }
 
    .container {
       background: white;
       padding: 25px;
       border-radius: 12px;
-      max-width: 400px;
+      max-width: 350px;
       width: 100%;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
       text-align: center;
@@ -85,7 +91,7 @@ body {
       background: #002d5f;
       color: white;
       border-radius: 6px;
-      font-size: 14px;
+      font-size: 1.2rem;
     }
 
     #notificacao {

@@ -113,3 +113,123 @@ body.dark-mode .progress-inner {
       background: #a00000;
       transition: width 1s linear;
     }
+
+footer.footer {
+  background-color: #002d5f;
+  color: white;
+  padding: 15px 0;
+  text-align: center;
+  flex-shrink: 0;
+  width: 100%;
+  margin-bottom: 0;
+  margin-top: 13%;
+}
+
+body.dark-mode footer.footer {
+  background-color: #333;
+}
+
+
+footer ul {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+footer ul li {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+footer a {
+ text-decoration: none;
+}
+
+footer a:visited {
+ background-color: none;
+  color: inherit;
+  text-decoration: none;
+}
+
+footer ul a {
+  background-color: none;
+  color: inherit;
+  text-decoration: none;
+}
+
+footer ul a a:visited {
+  background-color: none;
+  color: inherit;
+  text-decoration: none;
+}
+
+h1 {
+  background-color: #002d5f;
+  width: 100%;
+  text-align: center;
+  color: white;
+  padding: 10px 0;
+  margin-top: 0;
+  margin-bottom: 6%;
+
+}
+
+/* Tema Escuro */
+body.dark-mode h1 {
+  background-color: #333;
+}
+
+/* Tema Escuro Botoes e Setas */
+body.dark-mode .bi-arrow-right-circle-fill {
+  color: #a00000;
+}
+
+body.dark-mode .bi-arrow-left-circle-fill {
+  color: #a00000;
+}
+
+
+body.dark-mode .botao-esquerda {
+border-radius: 100%;
+}
+
+body.dark-mode .botao-direita {
+border-radius: 100%;
+}
+
+
+@media (max-width: 600px) {
+  footer.footer {
+    font-size: 18px;
+    padding: 10px 0;
+    margin-bottom: 0;
+  margin-top: 45%;
+  }
+
+  h1 {
+      margin-top: 0;
+  margin-bottom: 40%;
+  }
+
+  footer ul {
+  gap: 20px;
+}
+
+
+  .bi-whatsapp {
+    font-size: 40px;
+  }
+
+  .bi-instagram {
+    font-size: 40px;
+  }
+
+  .container {
+      max-width: 300px;
+      width: 100%;
+    }
+
+}
