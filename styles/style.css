@@ -177,9 +177,9 @@ h1 {
 
 }
 
-/* Tema Escuro */
+/* Tema Escuro alterado por Letícia*/
 body.dark-mode h1 {
-  background-color: #333;
+  background-color: transparent;
 }
 
 /* Tema Escuro Botoes e Setas */
