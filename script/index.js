@@ -20,6 +20,7 @@ const dataFormatada = dataLocal.toLocaleDateString('pt-BR', {
   day: '2-digit', month: 'long', year: 'numeric'
 });
 
+
       titulo.textContent = dataFormatada;
       containerDia.style.display = 'block';
 
@@ -99,3 +100,17 @@ function atualizarData(offsetDias) {
 
 btnAnterior.addEventListener('click', () => atualizarData(-1));
 btnProximo.addEventListener('click', () => atualizarData(1));
+
+
+// Acrescentando uma pequena alteração na página inicial!
+
+window.addEventListener('DOMContentLoaded', () => {
+  const hoje = new Date();
+  const ano = hoje.getFullYear();
+  const mes = String(hoje.getMonth() + 1).padStart(2, '0');
+  const dia = String(hoje.getDate()).padStart(2, '0');
+  const hojeStr = `${ano}-${mes}-${dia}`;
+
+  dataInput.value = hojeStr;
+  dataInput.dispatchEvent(new Event('change'));
+});

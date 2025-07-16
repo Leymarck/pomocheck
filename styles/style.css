@@ -23,6 +23,14 @@ body.dark-mode .tempos div {
   color: #fff !important;
 }
 
+body.dark-mode #proximo {
+  background-color: transparent !important;
+}
+
+body.dark-mode #anterior {
+  background-color: transparent !important;
+}
+
 #toggle-tema {
   margin-bottom: 15px;
   background: #002d5f;
@@ -174,7 +182,7 @@ h1 {
   padding: 10px 0;
   margin-top: 0;
   margin-bottom: 6%;
-
+  font-size: 36px ;
 }
 
 /* Tema Escuro alterado por Letícia*/
