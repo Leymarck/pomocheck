@@ -109,3 +109,13 @@ body {
   opacity: 0;
   transition: opacity 0.4s ease;
 }
+
+input.timer {
+  font-size: 48px;
+  color: #002d5f;
+  background: transparent;
+  border: none;
+  text-align: center;
+  width: 120px;
+  outline: none;
+}

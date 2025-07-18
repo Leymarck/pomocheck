@@ -1,91 +1,95 @@
 const tempos = document.querySelectorAll('.tempos div');
-    const timerEl = document.getElementById('timer');
-    const progressEl = document.getElementById('progress');
-    const btn = document.getElementById('btn');
-    const clickAudio = document.getElementById('som-click');
-    const fimAudio = document.getElementById('som-fim');
+let timerEl = document.getElementById('timer');
+const progressEl = document.getElementById('progress');
+const btn = document.getElementById('btn');
+const clickAudio = document.getElementById('som-click');
+const fimAudio = document.getElementById('som-fim');
 
-    let tempoTotal = 1500;
-    let tempoRestante = 1500;
-    let intervalo = null;
-    let rodando = false;
+let tempoTotal = 1500;
+let tempoRestante = 1500;
+let intervalo = null;
+let rodando = false;
 
-    function formatar(segundos) {
-      const m = String(Math.floor(segundos / 60)).padStart(2, '0');
-      const s = String(segundos % 60).padStart(2, '0');
-      return `${m}:${s}`;
-    }
+function formatar(segundos) {
+  const m = String(Math.floor(segundos / 60)).padStart(2, '0');
+  const s = String(segundos % 60).padStart(2, '0');
+  return `${m}:${s}`;
+}
 
-    function atualizarTimer() {
-      timerEl.textContent = formatar(tempoRestante);
-      document.title = formatar(tempoRestante) + ' - Pomodoro';
-      const progresso = ((tempoTotal - tempoRestante) / tempoTotal) * 100;
-      progressEl.style.width = `${progresso}%`;
-    }
+function atualizarTimer() {
+  timerEl.textContent = formatar(tempoRestante);
+  document.title = formatar(tempoRestante) + ' - Pomodoro';
+  const progresso = ((tempoTotal - tempoRestante) / tempoTotal) * 100;
+  progressEl.style.width = `${progresso}%`;
+}
 
-    function iniciarContagem() {
-      intervalo = setInterval(() => {
-        if (tempoRestante > 0) {
-          tempoRestante--;
-          atualizarTimer();
-        } else {
-          pararContagem();
-          fimAudio.play();
-          mostrarNotificacao("⏰ Tempo esgotado!", "Seu tempo de Pomodoro acabou.");
-          registrarPomodoroConcluido();
-        }
-      }, 1000);
-    }
+function iniciarContagem() {
+  intervalo = setInterval(() => {
+    if (tempoRestante > 0) {
+      tempoRestante--;
+      atualizarTimer();
+    } else {
+      pararContagem();
 
-    function pararContagem() {
-      clearInterval(intervalo);
-      intervalo = null;
-      rodando = false;
-      btn.textContent = 'Start';
-    }
+      // Toca o pocoto.mp3
+      fimAudio.currentTime = 0;
+      fimAudio.play();
 
-    btn.addEventListener('click', () => {
-      clickAudio.play();
-      if (rodando) {
-        pararContagem();
-      } else {
-        rodando = true;
-        iniciarContagem();
-        btn.textContent = 'Stop';
+      // Depois que o áudio tocar a página será recarregada.
+      fimAudio.onended = () => {
+        location.reload();
       }
-    });
 
-    tempos.forEach(t => {
-      t.addEventListener('click', () => {
-        tempos.forEach(div => div.classList.remove('ativo'));
-        t.classList.add('ativo');
-        tempoTotal = tempoRestante = parseInt(t.dataset.tempo);
-        atualizarTimer();
-        pararContagem();
-      });
-    });
+      mostrarNotificacao("⏰ Tempo esgotado!", "Seu tempo de Pomodoro acabou.");
+      registrarPomodoroConcluido();
 
-    function mostrarNotificacao(titulo, corpo) {
-      if (Notification.permission === 'granted') {
-        new Notification(titulo, { body: corpo });
-      } else if (Notification.permission !== 'denied') {
-        Notification.requestPermission().then(perm => {
-          if (perm === 'granted') {
-            new Notification(titulo, { body: corpo });
-          }
-        });
-      }
     }
+  }, 1000);
+}
 
+function pararContagem() {
+  clearInterval(intervalo);
+  intervalo = null;
+  rodando = false;
+  btn.textContent = 'Start';
+}
 
+btn.addEventListener('click', () => {
+  clickAudio.play();
+  if (rodando) {
+    pararContagem();
+  } else {
+    rodando = true;
+    iniciarContagem();
+    btn.textContent = 'Stop';
+  }
+});
 
-    // Inicial
+tempos.forEach(t => {
+  t.addEventListener('click', () => {
+    tempos.forEach(div => div.classList.remove('ativo'));
+    t.classList.add('ativo');
+    tempoTotal = tempoRestante = parseInt(t.dataset.tempo);
     atualizarTimer();
-    Notification.requestPermission();
+    pararContagem();
+  });
+});
 
-    function registrarPomodoroConcluido() {
+function mostrarNotificacao(titulo, corpo) {
+  if (Notification.permission === 'granted') {
+    new Notification(titulo, { body: corpo });
+  } else if (Notification.permission !== 'denied') {
+    Notification.requestPermission().then(perm => {
+      if (perm === 'granted') {
+        new Notification(titulo, { body: corpo });
+      }
+    });
+  }
+}
+
+function registrarPomodoroConcluido() {
   const hoje = new Date();
-  const dataStr = hoje.toISOString().split('T')[0]; // "YYYY-MM-DD"
+  const dataStr = hoje.toISOString().split('T')[0];
   const storageKey = `pomodoros_${dataStr}`;
   const registro = JSON.parse(localStorage.getItem(storageKey));
 
@@ -95,7 +99,6 @@ const tempos = document.querySelectorAll('.tempos div');
     if (proxIndex !== -1) {
       feitos[proxIndex] = true;
     } else {
-      // Todos marcados, adiciona novo pomodoro automaticamente
       feitos.push(true);
       registro.planejado += 1;
     }
@@ -104,16 +107,12 @@ const tempos = document.querySelectorAll('.tempos div');
       feitos
     }));
   } else {
-    // Nenhum registro ainda hoje, cria com 1 pomodoro concluído
     localStorage.setItem(storageKey, JSON.stringify({
       planejado: 1,
       feitos: [true]
     }));
   }
   mostrarMensagemPomodoro();
-  setTimeout(() => {
-  location.reload();
-  }, 3000);
 }
 
 function mostrarMensagemPomodoro() {
@@ -131,18 +130,81 @@ function mostrarMensagemPomodoro() {
 }
 
 document.addEventListener('keydown', (e) => {
-  // Ignora se o usuário estiver digitando em um input ou textarea
   const alvo = document.activeElement;
   if (alvo.tagName === 'INPUT' || alvo.tagName === 'TEXTAREA') return;
 
-  // T: alternar tema
   if (e.key.toLowerCase() === 't') {
-    btnTema.click(); // Simula clique no botão
+    const btnTema = document.getElementById('toggle-tema');
+    if (btnTema) btnTema.click();
   }
 
-  // Espaço: iniciar/parar pomodoro
   if (e.code === 'Space') {
-    e.preventDefault(); // Evita rolagem
-    if (btnStartStop) btnStartStop.click();
+    e.preventDefault();
+    if (btn) btn.click();
   }
 });
+
+function formatarEntradaParaSegundos(valor) {
+  const partes = valor.split(':');
+  if (partes.length !== 2) return null;
+  const min = parseInt(partes[0], 10);
+  const seg = parseInt(partes[1], 10);
+  if (isNaN(min) || isNaN(seg) || seg >= 60 || min < 0 || seg < 0) return null;
+  return min * 60 + seg;
+}
+
+function ativarEdicao() {
+  const input = document.createElement('input');
+  input.type = 'text';
+  input.value = formatar(tempoTotal);
+  input.className = 'timer';
+  input.style.border = 'none';
+  input.style.outline = 'none';
+  input.style.width = '120px';
+  input.style.fontSize = '48px';
+  input.style.textAlign = 'center';
+  input.style.color = '#002d5f';
+  input.style.background = 'transparent';
+
+  timerEl.replaceWith(input);
+  input.focus();
+
+  input.addEventListener('blur', () => aplicarNovoTempo(input));
+  input.addEventListener('keydown', e => {
+    if (e.key === 'Enter') aplicarNovoTempo(input);
+    if (e.key === 'Escape') cancelarEdicao(input);
+  });
+}
+
+function aplicarNovoTempo(input) {
+  const novo = formatarEntradaParaSegundos(input.value);
+  const container = input.parentElement;
+
+  timerEl = document.createElement('div');
+  timerEl.id = 'timer';
+  timerEl.className = 'timer';
+
+  if (novo !== null) {
+    tempoTotal = tempoRestante = novo;
+  }
+
+  timerEl.textContent = formatar(tempoRestante);
+  container.replaceChild(timerEl, input);
+  timerEl.addEventListener('click', ativarEdicao);
+  atualizarTimer();
+}
+
+function cancelarEdicao(input) {
+  const container = input.parentElement;
+  timerEl = document.createElement('div');
+  timerEl.id = 'timer';
+  timerEl.className = 'timer';
+  timerEl.textContent = formatar(tempoRestante);
+  container.replaceChild(timerEl, input);
+  timerEl.addEventListener('click', ativarEdicao);
+}
+
+timerEl.addEventListener('click', ativarEdicao);
+
+atualizarTimer();
+Notification.requestPermission();
