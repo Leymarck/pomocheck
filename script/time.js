@@ -163,7 +163,6 @@ function ativarEdicao() {
   input.style.width = '120px';
   input.style.fontSize = '48px';
   input.style.textAlign = 'center';
-  input.style.color = '#002d5f';
   input.style.background = 'transparent';
 
   timerEl.replaceWith(input);

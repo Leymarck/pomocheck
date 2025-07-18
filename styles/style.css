@@ -187,7 +187,7 @@ h1 {
 
 /* Tema Escuro alterado por Letícia*/
 body.dark-mode h1 {
-  background-color: transparent;
+  background-color: #333;
 }
 
 /* Tema Escuro Botoes e Setas */
@@ -208,6 +208,9 @@ body.dark-mode .botao-direita {
 border-radius: 100%;
 }
 
+body.dark-mode .timer {
+  color: #ccc;
+}
 
 @media (max-width: 600px) {
   footer.footer {
