@@ -111,7 +111,9 @@ const tempos = document.querySelectorAll('.tempos div');
     }));
   }
   mostrarMensagemPomodoro();
-
+  setTimeout(() => {
+  location.reload();
+  }, 3000);
 }
 
 function mostrarMensagemPomodoro() {
